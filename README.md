@@ -1,272 +1,337 @@
-
 # Time Leak Detector (ITSM)
 
 Operational analytics pipeline for diagnosing time leakage in IT service workflows.
 
 This project simulates Jira/ServiceNow ticket lifecycles, computes operational metrics, identifies workflow bottlenecks, and estimates cost savings from process improvements.
 
-Key capabilities:
+---
 
-• Detect workflow inefficiencies across teams and statuses  
-• Quantify operational time leakage in ticket lifecycles  
-• Simulate intervention strategies before implementation  
-• Generate executive-ready narratives from operational metrics  
-• Provide an interactive analytics dashboard via Streamlit
+## Key Capabilities
 
-Overview
+- Detect workflow inefficiencies across teams and statuses  
+- Quantify operational time leakage in ticket lifecycles  
+- Simulate intervention strategies before implementation  
+- Generate executive-ready narratives from operational metrics  
+- Provide an interactive analytics dashboard via Streamlit  
 
-Time Leak Detector is an operational analytics pipeline designed to identify workflow inefficiencies in IT Service Management (ITSM) ticket lifecycles.
+---
 
-The system simulates realistic Jira/ServiceNow-style ticket data, computes time-based performance metrics, attributes operational leakage across teams and statuses, estimates cost impact, and enables scenario-based intervention modeling.
+## Overview
 
-The platform also includes an LLM-assisted executive narrative generator with structured fact validation to translate analytics outputs into executive-ready summaries.
+**Time Leak Detector** is an operational analytics pipeline designed to identify workflow inefficiencies in IT Service Management (ITSM) ticket lifecycles.
 
-The goal of the project is to demonstrate how structured analytics pipelines can surface operational inefficiencies and quantify savings opportunities in a repeatable, automated way.
+The system:
 
-Problem Statement
+1. Simulates realistic Jira / ServiceNow ticket data  
+2. Computes time-based performance metrics  
+3. Attributes operational leakage across teams and statuses  
+4. Estimates financial impact of inefficiencies  
+5. Enables scenario-based intervention modeling  
+
+The platform also includes an **LLM-assisted executive narrative generator with structured fact validation** that converts analytical results into executive-ready summaries.
+
+The goal of this project is to demonstrate how structured analytics pipelines can surface operational inefficiencies and quantify savings opportunities in a repeatable automated workflow.
+
+---
+
+## Problem Statement
 
 IT operations teams frequently rely on manual exports and spreadsheet analysis to diagnose workflow inefficiencies.
 
-Typical workflow:
+Typical workflow today:
 
-Export tickets from Jira or ServiceNow
+1. Export tickets from Jira or ServiceNow  
+2. Clean and normalize timestamp data  
+3. Manually compute cycle time and queue delays  
+4. Build pivot tables by team, category, or priority  
+5. Estimate cost exposure from delays  
 
-Clean and normalize timestamp data
+This process is:
 
-Manually compute cycle time and queue delays
+- time-consuming  
+- inconsistent  
+- difficult to scale  
 
-Build pivot tables by team, category, or priority
+**Time Leak Detector automates this workflow end-to-end.**
 
-Estimate cost exposure from delays
+---
 
-This process is time-consuming, inconsistent, and difficult to scale.
-
-Time Leak Detector automates this workflow end-to-end using a modular analytics pipeline.
-
-What This Project Demonstrates
+## What This Project Demonstrates
 
 This project shows how operational analytics can be used to:
 
-Diagnose workflow inefficiencies in IT service management systems
-
-Quantify operational time leakage across teams and processes
-
-Simulate operational interventions before implementation
-
-Translate operational metrics into financial impact estimates
+- Diagnose workflow inefficiencies in IT service management systems  
+- Quantify operational time leakage across teams and processes  
+- Simulate operational interventions before implementation  
+- Translate operational metrics into financial impact estimates  
 
 The system combines:
 
-Data engineering pipelines
-
-Operational analytics
-
-Simulation modeling
-
-LLM-assisted reporting
+- Data engineering pipelines  
+- Operational analytics  
+- Simulation modeling  
+- LLM-assisted reporting  
 
 into a single reproducible workflow.
 
-System Architecture
-Synthetic Data Generator
+---
 
-Generates realistic ITSM ticket lifecycles including priorities, handoffs, waiting states, and resolution patterns.
+## System Architecture
 
-Data Contract and Schema Validation
+### Synthetic Data Generator
+
+Generates realistic ITSM ticket lifecycles including:
+
+- priorities  
+- handoffs  
+- waiting states  
+- resolution patterns  
+
+---
+
+### Data Contract and Schema Validation
 
 Validates required columns, timestamp formats, and data types before processing.
 
-Ingestion and Normalization
+---
+
+### Ingestion and Normalization
 
 Standardizes timestamps, identifiers, and canonical dataframe structures.
 
-Feature Engineering
+---
+
+### Feature Engineering
 
 Computes operational metrics including:
 
-cycle time
+- cycle time  
+- queue time (first-touch delay)  
+- idle time (waiting states)  
+- time-in-status breakdown  
+- handoff count  
 
-queue time (first-touch delay)
+---
 
-idle time (waiting states)
-
-time-in-status breakdown
-
-handoff count
-
-Leakage Attribution Engine
+### Leakage Attribution Engine
 
 Ranks time leakage by:
 
-team
+- team  
+- ticket category  
+- priority  
+- workflow status  
 
-ticket category
+---
 
-priority
+### Intervention Simulator
 
-workflow status
+Runs scenario modeling such as:
 
-Intervention Simulator
+- reducing queue time  
+- reducing idle time  
+- reducing handoffs  
 
-Runs scenario modeling (e.g., reduce handoffs or waiting time) and estimates cost savings ranges.
+and estimates cost savings ranges.
 
-Feedback Loop
+---
+
+### Feedback Loop
 
 Compares predicted vs observed improvements to measure simulation calibration accuracy.
 
-Executive Narrative Generator
+---
+
+### Executive Narrative Generator
 
 Produces structured executive summaries from computed metrics with fact validation to prevent hallucinations.
 
-Streamlit Dashboard
+---
+
+### Streamlit Dashboard
 
 Interactive interface for:
 
-overview metrics
+- overview metrics  
+- scoped team analysis  
+- intervention simulation  
+- executive summary generation  
 
-scoped team analysis
+---
 
-intervention simulation
+## Key Metrics
 
-executive summary generation
+### Per Ticket
 
-Key Metrics
-Per Ticket
+- `cycle_hours`
+- `queue_hours`
+- `idle_hours`
+- `handoff_count`
+- `time_in_*_hours`
 
-cycle_hours
+### Aggregated Outputs
 
-queue_hours
+- Total leakage hours by team  
+- Leakage distribution by priority  
+- Status-level bottlenecks  
+- Estimated annualized cost impact  
 
-idle_hours
+---
 
-handoff_count
-
-time_in_*_hours
-
-Aggregated Outputs
-
-Total leakage hours by team
-
-Leakage distribution by priority
-
-Status-level bottlenecks
-
-Estimated annualized cost impact
-
-Benchmark: Automated vs Manual Analysis
+## Benchmark: Automated vs Manual Analysis
 
 Diagnosing operational inefficiencies in IT systems often requires manual data analysis.
 
 Typical manual workflow:
 
-Export ticket and status data
+- Export ticket and status data  
+- Clean timestamps  
+- Build spreadsheet pivots  
+- Identify bottlenecks  
+- Estimate cost impact  
 
-Clean timestamps
+This typically requires **2–3 hours per week** for a mid-sized operations team.
 
-Build spreadsheet pivots
+---
 
-Identify bottlenecks
-
-Estimate cost impact
-
-This process typically requires 2–3 hours per week for a mid-sized operations team.
-
-Automated Pipeline Performance
+## Automated Pipeline Performance
 
 Using the Time Leak Detector pipeline:
 
-Dataset size: 2,000 tickets / 13,022 status events
+Dataset size:
 
-Full pipeline runtime: ~4 seconds
+```
+2,000 tickets
+13,022 status events
+```
+
+Full pipeline runtime:
+
+```
+~4 seconds
+```
 
 Operational insights that previously required hours of manual analysis can be produced in seconds.
 
-Example Findings (Synthetic Dataset)
+---
+
+## Example Findings (Synthetic Dataset)
 
 Using 2,000 simulated tickets:
 
-P3 tickets accounted for the majority of total leakage hours
+- P3 tickets accounted for the majority of total leakage hours  
+- Tier1 handled the largest ticket volume and accumulated the highest leakage  
+- `IN_PROGRESS` and `TRIAGE` represented the largest share of lifecycle time  
 
-Tier1 handled the largest ticket volume and accumulated the highest leakage
+---
 
-IN_PROGRESS and TRIAGE represented the largest share of lifecycle time
-
-Intervention Simulation
+## Intervention Simulation
 
 Scenario:
 
-Reduce queue delays by 20%
-
-Reduce idle time by 15%
-
-Reduce handoffs by 25%
+- Reduce queue delays by **20%**  
+- Reduce idle time by **15%**  
+- Reduce handoffs by **25%**
 
 Estimated savings:
 
-Scenario	Estimated Savings
-Low	$924,849
-Base	$929,664
-High	$934,426
+| Scenario | Estimated Savings |
+|--------|--------|
+| Low | $924,849 |
+| Base | $929,664 |
+| High | $934,426 |
 
 Simulation calibration:
 
-Predicted savings: $929,664
+- Predicted savings: **$929,664**  
+- Observed savings: **$930,998**  
+- Prediction error: **−0.14%**
 
-Observed savings: $930,998
-
-Prediction error: −0.14%
-
-This demonstrates stable and reliable operational improvement estimates.
+---
 
 ## Case Study Narrative (Synthetic Example)
 
-In this simulated dataset (2,000 tickets), the largest leakage concentrated in **Tier1 handling high-volume P3 requests**. A recurring pattern shows tickets spending extended time in **TRIAGE → IN_PROGRESS**, with additional delay introduced during handoffs (Tier1 → Tier2) and waiting states.  
+In this simulated dataset of **2,000 tickets**, the largest leakage concentrated in **Tier1 handling high-volume P3 requests**.
 
-Using the simulator, we modeled an operational improvement plan: **reduce queue delays by 20%**, **reduce idle time by 15%**, and **reduce handoffs by 25%**. The model estimates **~$924K–$934K** in annualized savings, and the feedback loop shows the prediction is stable (≈ **−0.14% error** vs observed).  
+A recurring pattern shows tickets spending extended time in:
 
-This demonstrates how the pipeline turns raw ticket lifecycles into a concrete “where the time goes” story, and quantifies what a process change could return in dollars before any real rollout.
+```
+TRIAGE → IN_PROGRESS
+```
 
-Technology Stack
+Additional delays were introduced through:
 
-Python
+- Tier1 → Tier2 handoffs  
+- waiting states between transitions  
 
-Pandas
+Using the simulator, we modeled an operational improvement plan:
 
-NumPy
+- reduce queue delays by **20%**  
+- reduce idle time by **15%**  
+- reduce handoffs by **25%**
 
-Streamlit
+The model estimates **$924K–$934K** in annualized savings.
 
-Pandera / Pydantic (schema validation)
+The feedback loop shows stable prediction accuracy with **≈ −0.14% error vs observed results**.
 
-OpenAI API (structured narrative generation)
+---
 
-How to Run
-Create environment
+## Technology Stack
+
+- Python  
+- Pandas  
+- NumPy  
+- Streamlit  
+- Pandera / Pydantic (schema validation)  
+- OpenAI API (structured narrative generation)
+
+---
+
+## How to Run
+
+### Create environment
+
+```
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-Generate synthetic data
+```
+
+### Generate synthetic data
+
+```
 python data/synthetic_generator.py
-Run pipeline
+```
+
+### Run pipeline
+
+```
 ./run.sh
-Launch dashboard
+```
+
+### Launch dashboard
+
+```
 PYTHONPATH=. streamlit run app/streamlit_app.py
-Enable executive summary generation
+```
+
+### Enable executive summary generation
+
+```
 export OPENAI_API_KEY=your_key_here
-Project Purpose
+```
+
+---
+
+## Project Purpose
 
 This project demonstrates:
 
-Operational analytics design
+- operational analytics design  
+- time-based workflow diagnostics  
+- cost impact modeling  
+- scenario-based intervention analysis  
+- controlled LLM integration with validation  
+- end-to-end analytics product thinking  
 
-Time-based workflow diagnostics
-
-Cost impact modeling
-
-Scenario-based intervention analysis
-
-Controlled LLM integration with validation
-
-End-to-end analytics product thinking
-
-It reflects a business analyst approach to diagnosing inefficiency, quantifying impact, and communicating findings in an executive-ready format.
+It reflects a **business analyst approach to diagnosing inefficiency, quantifying impact, and communicating findings in an executive-ready format.**
