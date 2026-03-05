@@ -15,7 +15,18 @@ This project simulates Jira/ServiceNow ticket lifecycles, computes operational m
 - Provide an interactive analytics dashboard via Streamlit  
 
 ---
+## Business Impact
 
+The pipeline transforms raw IT service ticket data into actionable operational insights.
+
+Instead of manually analyzing ticket exports in spreadsheets, operations teams can:
+
+• Detect workflow bottlenecks automatically  
+• Quantify time leakage across teams and priorities  
+• Estimate financial impact of delays  
+• Simulate process improvements before implementation  
+
+This enables faster operational decision making and measurable efficiency improvements in IT service organizations.
 ## Overview
 
 **Time Leak Detector** is an operational analytics pipeline designed to identify workflow inefficiencies in IT Service Management (ITSM) ticket lifecycles.
