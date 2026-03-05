@@ -1,4 +1,7 @@
 # Time Leak Detector (ITSM)
+## Dashboard Preview
+
+![Dashboard](dashboard.png)
 
 Operational analytics pipeline for diagnosing time leakage in IT service workflows.
 
